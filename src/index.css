@@ -88,6 +88,13 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  @font-face {
+    font-family: 'Arabic';
+    src: url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+    font-weight: normal;
+    font-style: normal;
+  }
 }
 
 @layer base {
@@ -97,5 +104,66 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .font-arabic {
+    font-family: 'Amiri', serif;
+    direction: rtl;
+  }
+  
+  .star-bg-container {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 1rem;
+    background: linear-gradient(to bottom, #f0fbf3, #fff);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .star-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    opacity: 0.1;
+    background-image: 
+      radial-gradient(#185a30 1px, transparent 1px),
+      radial-gradient(#185a30 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+  }
+  
+  .star-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23185a30' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+  
+  .shadow-star {
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-star::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: radial-gradient(circle at center, transparent 50%, rgba(24, 90, 48, 0.05) 100%);
+    border-radius: inherit;
+    z-index: -1;
+    pointer-events: none;
   }
 }

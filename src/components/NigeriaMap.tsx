@@ -1,18 +1,23 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin } from 'lucide-react';
+import { MapPin, Star } from 'lucide-react';
 
 const NigeriaMap = () => {
   return (
-    <Card className="border-health-200 shadow-lg mt-8">
-      <CardHeader className="bg-health-50 border-b border-health-200">
+    <Card className="border-health-200 shadow-lg mt-8 relative overflow-hidden">
+      {/* Star decoration */}
+      <div className="absolute top-0 right-0 transform -translate-y-1/3 translate-x-1/3 z-0 opacity-10">
+        <Star className="h-32 w-32 text-health-800" />
+      </div>
+      
+      <CardHeader className="bg-health-50 border-b border-health-200 relative z-10">
         <CardTitle className="text-health-800 flex items-center">
           <MapPin className="mr-2 h-5 w-5 text-health-600" />
           Our Location in Nigeria
         </CardTitle>
       </CardHeader>
-      <CardContent className="pt-6">
+      <CardContent className="pt-6 relative z-10">
         <div className="aspect-video w-full overflow-hidden rounded-md bg-muted">
           <iframe 
             title="Nigeria Map" 
