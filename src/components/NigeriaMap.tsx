@@ -1,12 +1,16 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { MapPin } from 'lucide-react';
 
 const NigeriaMap = () => {
   return (
     <Card className="border-health-200 shadow-lg mt-8">
       <CardHeader className="bg-health-50 border-b border-health-200">
-        <CardTitle className="text-health-800">Our Location in Nigeria</CardTitle>
+        <CardTitle className="text-health-800 flex items-center">
+          <MapPin className="mr-2 h-5 w-5 text-health-600" />
+          Our Location in Nigeria
+        </CardTitle>
       </CardHeader>
       <CardContent className="pt-6">
         <div className="aspect-video w-full overflow-hidden rounded-md bg-muted">
@@ -22,9 +26,19 @@ const NigeriaMap = () => {
             className="w-full h-full"
           />
         </div>
-        <p className="mt-4 text-sm text-gray-600">
-          Located in Block 331 Jakande Estate, Amuwo Odofin, Lagos, Nigeria. Visit us for consultations and to obtain herbal remedies for various ailments.
-        </p>
+        <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <p className="text-sm text-gray-600">
+            Located in Block 331 Jakande Estate, Amuwo Odofin, Lagos, Nigeria. Visit us for consultations and to obtain herbal remedies.
+          </p>
+          <a 
+            href="https://goo.gl/maps/jH1Z1Z1Z1Z1Z1Z1Z9" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-health-600 hover:bg-health-700 text-white font-medium py-2 px-4 rounded text-sm whitespace-nowrap text-center"
+          >
+            Get Directions
+          </a>
+        </div>
       </CardContent>
     </Card>
   );
